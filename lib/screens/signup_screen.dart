@@ -41,12 +41,7 @@ class _SignupScreenState extends State<SignupScreen> {
     });
 
     // signup user using our authmethodds
-    String res = await AuthMethods().signUpUser(
-        email: _emailController.text,
-        password: _passwordController.text,
-        username: _usernameController.text,
-        bio: _bioController.text,
-        file: _image!);
+    String res = await AuthMethods().signUpUser(email: _emailController.text, password: _passwordController.text, username: _usernameController.text, bio: _bioController.text, file: _image!);
     // if string returned is sucess, user has been created
     if (res == "success") {
       setState(() {
@@ -115,8 +110,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         )
                       : const CircleAvatar(
                           radius: 64,
-                          backgroundImage: NetworkImage(
-                              'https://i.stack.imgur.com/l60Hf.png'),
+                          backgroundImage: NetworkImage('https://i.stack.imgur.com/l60Hf.png'),
                           backgroundColor: Colors.red,
                         ),
                   Positioned(
@@ -179,7 +173,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   child: !_isLoading
                       ? const Text(
-                          'Sign up',
+                          'SIGN UP ',
                         )
                       : const CircularProgressIndicator(
                           color: primaryColor,
@@ -198,9 +192,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: const Text(
-                      'Already have an account?',
-                    ),
+                    child: const Text('Already have an account?', style: TextStyle(color: Colors.grey)),
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(
@@ -211,10 +203,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: const Text(
-                        ' Login.',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        '  Login',
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
                       ),
                     ),
                   ),

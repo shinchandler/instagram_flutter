@@ -55,8 +55,13 @@ class _AddPostScreenState extends State<AddPostScreen> {
     return showDialog(
       context: context,
       builder: (context) {
-        return SimpleDialog(backgroundColor: Colors.black,
-          title: Center(child: const Text('Create a Post',style: TextStyle(fontWeight: FontWeight.bold),)),
+        return SimpleDialog(
+          backgroundColor: Colors.black,
+          title: Center(
+              child: const Text(
+            'Create a Post',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          )),
           children: [
             SimpleDialogOption(
               padding: const EdgeInsets.all(20),
@@ -84,7 +89,12 @@ class _AddPostScreenState extends State<AddPostScreen> {
             ),
             SimpleDialogOption(
               padding: const EdgeInsets.all(20),
-              child: const Center(child: Text('❌ Cancel',style: TextStyle(fontWeight: FontWeight.bold),),),
+              child: const Center(
+                child: Text(
+                  '❌ Cancel',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -128,9 +138,12 @@ class _AddPostScreenState extends State<AddPostScreen> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.upload,color:  Colors.black,),
+                  Icon(
+                    Icons.upload,
+                    color: Colors.black,
+                  ),
                   const SizedBox(width: 12),
-                  Text('Upload Post',style: TextStyle(color: Colors.black) ),
+                  Text('Upload Post', style: TextStyle(color: Colors.black)),
                 ],
               ),
             ),
@@ -142,7 +155,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 onPressed: clearImage,
                 icon: const Icon(Icons.arrow_back),
               ),
-              title: const Text("New Post"),
+              title: const Text("New Post", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
               actions: [
                 TextButton(
                   onPressed: () => postImage(
@@ -180,10 +193,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
                       const SizedBox(width: 8),
                       Expanded(
                         child: TextField(
+                          style: TextStyle(color: Colors.black),
                           controller: _descriptionController,
-                          decoration: const InputDecoration(
-                            hintText: 'Write a caption',
-                          ),
+                          decoration: const InputDecoration(hintText: 'Write a caption', hintStyle: TextStyle(color: Colors.grey)),
                           maxLines: 4,
                         ),
                       ),

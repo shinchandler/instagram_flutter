@@ -17,8 +17,7 @@ class CommentsScreen extends StatefulWidget {
 }
 
 class _CommentsScreenState extends State<CommentsScreen> {
-  final TextEditingController commentEditingController =
-      TextEditingController();
+  final TextEditingController commentEditingController = TextEditingController();
 
   void postComment(String uid, String name, String profilePic) async {
     try {
@@ -53,17 +52,13 @@ class _CommentsScreenState extends State<CommentsScreen> {
         backgroundColor: mobileBackgroundColor,
         title: const Text(
           'Comments',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         centerTitle: false,
       ),
       body: StreamBuilder(
-        stream: FirebaseFirestore.instance
-            .collection('posts')
-            .doc(widget.postId)
-            .collection('comments')
-            .snapshots(),
-        builder: (context,
-            AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+        stream: FirebaseFirestore.instance.collection('posts').doc(widget.postId).collection('comments').snapshots(),
+        builder: (context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
               child: CircularProgressIndicator(),
@@ -82,8 +77,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
       bottomNavigationBar: SafeArea(
         child: Container(
           height: kToolbarHeight,
-          margin:
-              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          margin: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           padding: const EdgeInsets.only(left: 16, right: 8),
           child: Row(
             children: [
@@ -95,9 +89,11 @@ class _CommentsScreenState extends State<CommentsScreen> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 16, right: 8),
                   child: TextField(
+                    style: const TextStyle(color: Colors.black),
                     controller: commentEditingController,
                     decoration: InputDecoration(
                       hintText: 'Comment as ${user.username}',
+                      hintStyle: const TextStyle(color: Colors.grey),
                       border: InputBorder.none,
                     ),
                   ),
@@ -110,11 +106,10 @@ class _CommentsScreenState extends State<CommentsScreen> {
                   user.photoUrl,
                 ),
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   child: const Text(
                     'Post',
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
                   ),
                 ),
               )

@@ -30,10 +30,11 @@ class CommentCard extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: snap.data()['name'],
-                          style: const TextStyle(fontWeight: FontWeight.bold,)
+                          style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.black)
                         ),
                         TextSpan(
                           text: ' ${snap.data()['text']}',
+                          style: const TextStyle(color: Colors.black)
                         ),
                       ],
                     ),
@@ -44,8 +45,8 @@ class CommentCard extends StatelessWidget {
                       DateFormat.yMMMd().format(
                         snap.data()['datePublished'].toDate(),
                       ),
-                      style: const TextStyle(
-                          fontSize: 12, fontWeight: FontWeight.w400,),
+                      style: TextStyle(
+                          fontSize: 12, fontWeight: FontWeight.w400,color: Colors.grey[600]),
                     ),
                   )
                 ],
@@ -55,8 +56,9 @@ class CommentCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             child: const Icon(
-              Icons.favorite,
+              Icons.favorite_border,
               size: 16,
+              color: Colors.black,
             ),
           )
         ],

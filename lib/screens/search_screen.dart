@@ -22,23 +22,26 @@ class _SearchScreenState extends State<SearchScreen> {
         backgroundColor: mobileBackgroundColor,
         title: Container(
           decoration: BoxDecoration(
-            color: Colors.black,
-            borderRadius: BorderRadius.circular(8.0),
+            color: Colors.white,
+            border: Border.all(color: Colors.grey),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Icon(
                   Icons.search,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
               Expanded(
                 child: TextFormField(
+                  style: const TextStyle(color: Colors.black),
                   controller: searchController,
-                  decoration: InputDecoration(
-                    hintText: 'Search for a user...',hintStyle: TextStyle(color: Colors.white),
+                  decoration: const InputDecoration(
+                    hintText: 'Search for a user...',
+                    hintStyle: TextStyle(color: Colors.grey),
                     border: InputBorder.none,
                   ),
                   onFieldSubmitted: (String _) {
@@ -89,7 +92,8 @@ class _SearchScreenState extends State<SearchScreen> {
                           radius: 16,
                         ),
                         title: Text(
-                          (snapshot.data! as dynamic).docs[index]['username'],style: TextStyle(color: Colors.black),
+                          (snapshot.data! as dynamic).docs[index]['username'],
+                          style: const TextStyle(color: Colors.black),
                         ),
                       ),
                     );
@@ -98,10 +102,7 @@ class _SearchScreenState extends State<SearchScreen> {
               },
             )
           : FutureBuilder(
-              future: FirebaseFirestore.instance
-                  .collection('posts')
-                  .orderBy('datePublished', descending: true)
-                  .get(),
+              future: FirebaseFirestore.instance.collection('posts').orderBy('datePublished', descending: true).get(),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
                   return const Center(

@@ -117,7 +117,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: !_isLoading
                       ? const Text(
-                          'Log in',
+                          'LOG IN  ',
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         )
                       : const CircularProgressIndicator(
                           color: primaryColor,
@@ -136,8 +137,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: const Text(
-                      'Dont have an account?',
+                    child: Text(
+                      'Don\'t have an account?',
+                      style: TextStyle(color: Colors.grey[700])
                     ),
                   ),
                   GestureDetector(
@@ -148,10 +150,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: const Text(
-                        ' Signup.',
+                      child: Text(
+                        '  Sign up.',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
+                          color: Colors.black
                         ),
                       ),
                     ),
