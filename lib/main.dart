@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
                 );
               }
             }
+            //condition check
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
                 child: CircularProgressIndicator(
